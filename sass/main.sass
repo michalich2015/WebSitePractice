@@ -1,0 +1,100 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.75
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+	.ishome
+		.site-header
+			min-height: 700px
+			height: 100vh
+			background-color: $dark
+			.top-line
+			padding-top: 40px
+			position:absolute
+			width: 100%
+			z-index: 1
+.logo
+	img
+		width: 250px
+		height: auto
+
+section, header
+	position: relative
+	background-size: cover
+	background-position: center
+
+section
+	background-color: #fff
+	
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+.success
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	text-transform: uppercase
+	font-weight: bold
+	display: flex
+	z-index: 10
+	span
+		margin:auto
+	& ~ *
+		transition: all .5s ease
+	&.active
+		& ~ *
+			opacity: .5
+			filter: blur(10px)
+$colors: $blue,#DECDE8, #C8E8CD
+@for $i from 1 through length($colors)
+	.carousel-services .owl-item:nth-child(#{length($colors)}n+#{$i})
+		background-color: nth($colors, $i)
+@import "media" // Всегда в конце
